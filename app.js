@@ -1,17 +1,17 @@
-const canvas = document.querySelector("#jsCanvas");
-const ctx = canvas.getContext("2d");
-const colors = document.querySelectorAll(".jsColor");
-const range = document.querySelector("#jsRange");
-const mode = document.querySelector("#jsMode");
-const saveBtn = document.querySelector("#jsSave");
+const canvas = document.querySelector('#jsCanvas');
+const ctx = canvas.getContext('2d');
+const colors = document.querySelectorAll('.jsColor');
+const range = document.querySelector('#jsRange');
+const mode = document.querySelector('#jsMode');
+const saveBtn = document.querySelector('#jsSave');
 
-const INITIAL_COLOR = "#2c2c2c";
-const CANVAS_SIZE = 700;
+const INITIAL_COLOR = '#2c2c2c';
+const CANVAS_SIZE = 400;
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
 
-ctx.fillStyle = "white";
+ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.fillStyle = INITIAL_COLOR;
@@ -53,10 +53,10 @@ function handleRangeChange(event) {
 function handleModeClick() {
   if (filling === true) {
     filling = false;
-    mode.innerText = "Fill";
+    mode.innerText = 'Fill';
   } else {
     filling = true;
-    mode.innerText = "Paint";
+    mode.innerText = 'Paint';
   }
 }
 function handleCanvasClick() {
@@ -70,30 +70,30 @@ function handleCM(event) {
 
 function handleSaveClick() {
   const image = canvas.toDataURL();
-  const link = document.createElement("a");
+  const link = document.createElement('a');
   link.href = image;
-  link.download = "paint";
+  link.download = 'paint';
   link.click();
 }
 if (canvas) {
-  canvas.addEventListener("mousemove", onMouseMove);
-  canvas.addEventListener("mousedown", StartPainting);
-  canvas.addEventListener("mouseup", StopPainting);
-  canvas.addEventListener("mouseleave", StopPainting);
-  canvas.addEventListener("click", handleCanvasClick);
-  canvas.addEventListener("contextmenu", handleCM);
+  canvas.addEventListener('mousemove', onMouseMove);
+  canvas.addEventListener('mousedown', StartPainting);
+  canvas.addEventListener('mouseup', StopPainting);
+  canvas.addEventListener('mouseleave', StopPainting);
+  canvas.addEventListener('click', handleCanvasClick);
+  canvas.addEventListener('contextmenu', handleCM);
 }
 
-colors.forEach((color) => color.addEventListener("click", handleColorClick));
+colors.forEach((color) => color.addEventListener('click', handleColorClick));
 
 if (range) {
-  range.addEventListener("input", handleRangeChange);
+  range.addEventListener('input', handleRangeChange);
 }
 
 if (mode) {
-  mode.addEventListener("click", handleModeClick);
+  mode.addEventListener('click', handleModeClick);
 }
 
 if (saveBtn) {
-  saveBtn.addEventListener("click", handleSaveClick);
+  saveBtn.addEventListener('click', handleSaveClick);
 }
