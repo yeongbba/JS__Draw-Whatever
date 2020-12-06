@@ -1,4 +1,4 @@
-# Draw whatever Project
+# Draw Whatever Project
 <br>  
   
 그림을 그리고, 이미지로 저장할 수 있는 웹 사이트를 구현을 한 프로젝트입니다.  
